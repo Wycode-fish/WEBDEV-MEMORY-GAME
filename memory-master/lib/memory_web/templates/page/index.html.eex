@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <h1 id="index-page">Join a Game</h1>
+    <p><input type="text" id="game-input"></p>
+    <p><a href="/game/" id="link" onclick="useValue()">Join</a></p>
+  </div>
+</div>
+<script>
+function useValue() {
+  document.getElementById('link').href +=
+   encodeURIComponent(document.getElementById('game-input').value);
+}
+</script>

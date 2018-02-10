@@ -1,0 +1,50 @@
+/* This file is for your main application css. */
+
+@import "bootstrap";
+
+.side { padding: 4ex; text-align: center; }
+h1 {
+	text-align: center;
+	padding: 10px;
+}
+body {
+	font-size: 15pt;
+}
+div#root {
+	text-align:center;
+}
+ul {
+	list-style:none;
+}
+li {
+	display:inline;
+	padding:10px;
+}
+button.unselected {
+	padding:32px;
+	background-color: #FFFFF0;
+	border-radius: 4px;
+	width:100px;
+	height:100px;
+	vertical-align: top;
+}
+button.unselected:hover {
+	background-color: #FFDAB9;
+}
+button.selected {
+	padding:32px;
+	background-color: #F08080;
+	border: solid 4px #87CEFA;
+	border-radius: 4px;
+	width:100px;
+	height:100px;
+	vertical-align: top;
+}
+.click {
+	padding-left: 90px;
+	padding-right: 10px;
+}
+.match {
+	padding-left: 10px;
+	padding-right: 20px;
+}
