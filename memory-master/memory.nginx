@@ -1,21 +1,34 @@
-http {
-    map $http_upgrade $connection_upgrade {
-        default upgrade;
-        '' close;
-    }
+#upstream websocket {
+#   server 45.32.216.164:8010;
+#}
 
-    upstream websocket {
-        server 45.32.216.164:8010;
-    }
+server {
+        listen 80;
+        listen [::]:80;
+	
+	root /home/memory/src;
 
+        #index index.html;
 
-    server {
-        listen 8020;
+        server_name memory.eason.space;
+	
+	#upstream websocket {
+	#	server 192.168.100.10:8010;
+	#}	
+
         location / {
-            proxy_pass http://websocket;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection $connection_upgrade;
-        }
-    }
+		proxy_pass http://localhost:5100;
+               	# First attempt to serve request as file, then
+               	# as directory, then fall back to displaying a 404.
+               	#try_files $uri $uri/ =404;
+		#proxy_pass http://websocket;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+	       	proxy_set_header Connection "Upgrade";
+		#proxy_set_header Host $host;
+		proxy_set_header Origin '';
+	}
 }
+
+
+
